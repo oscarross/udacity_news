@@ -8,25 +8,37 @@ public class Article {
         WORLD, OTHER
     }
 
-    private String name;
+    private String webTitle;
+    private String webPublicationDate;
     private Category category;
+    private String webUrl;
 
-    public Article(String name, Category category) {
-        this.name = name;
+    public Article(String webTitle, String webPublicationDate, Category category, String webUrl) {
+        this.webTitle = webTitle;
+        this.webPublicationDate = webPublicationDate;
         this.category = category;
+        this.webUrl = webUrl;
     }
 
-    public String getName() {
-        return name;
+    public String getWebTitle() {
+        return webTitle;
     }
 
     public Category getCategory() {
         return category;
     }
 
+    public String getWebPublicationDate() {
+        return webPublicationDate;
+    }
+
+    public String getWebUrl() {
+        return webUrl;
+    }
+
     @NonNull
     @Override
     public String toString() {
-        return "Article - " + name + " Category - " + category;
+        return "Article - " + webTitle + " Category - " + category;
     }
 }

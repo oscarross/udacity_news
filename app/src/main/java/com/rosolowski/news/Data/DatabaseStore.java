@@ -23,23 +23,23 @@ public class DatabaseStore {
 
     private ArrayList<Article> mockNewsWorld() {
         final ArrayList<Article> array = new ArrayList<>();
-        array.add(new Article("News_1", Article.Category.WORLD));
-        array.add(new Article("News_2", Article.Category.WORLD));
-        array.add(new Article("News_3", Article.Category.WORLD));
-        array.add(new Article("News_4", Article.Category.WORLD));
-        array.add(new Article("News_5", Article.Category.WORLD));
-        array.add(new Article("News_6", Article.Category.WORLD));
+        array.add(new Article("News_1", "2020-01-26T09:06:18Z", Article.Category.WORLD, "https://www.theguardian.com/environment/2020/jan/26/call-for-all-toiletries-to-carry-recycling-information"));
+        array.add(new Article("News_2", "2020-01-26T09:06:18Z", Article.Category.WORLD, "https://www.theguardian.com/environment/2020/jan/26/call-for-all-toiletries-to-carry-recycling-information"));
+        array.add(new Article("News_3", "2020-01-26T09:06:18Z", Article.Category.WORLD, "https://www.theguardian.com/environment/2020/jan/26/call-for-all-toiletries-to-carry-recycling-information"));
+        array.add(new Article("News_4", "2020-01-26T09:06:18Z", Article.Category.WORLD, "https://www.theguardian.com/environment/2020/jan/26/call-for-all-toiletries-to-carry-recycling-information"));
+        array.add(new Article("News_5", "2020-01-26T09:06:18Z", Article.Category.WORLD, "https://www.theguardian.com/environment/2020/jan/26/call-for-all-toiletries-to-carry-recycling-information"));
+        array.add(new Article("News_6", "2020-01-26T09:06:18Z", Article.Category.WORLD, "https://www.theguardian.com/environment/2020/jan/26/call-for-all-toiletries-to-carry-recycling-information"));
         return array;
     }
 
     private ArrayList<Article> mockNewsOther() {
         final ArrayList<Article> array = new ArrayList<>();
-        array.add(new Article("News_1", Article.Category.OTHER));
-        array.add(new Article("News_2", Article.Category.OTHER));
-        array.add(new Article("News_3", Article.Category.OTHER));
-        array.add(new Article("News_4", Article.Category.OTHER));
-        array.add(new Article("News_5", Article.Category.OTHER));
-        array.add(new Article("News_6", Article.Category.OTHER));
+        array.add(new Article("News_1", "2020-01-26T09:06:18Z", Article.Category.OTHER, "https://www.theguardian.com/environment/2020/jan/26/call-for-all-toiletries-to-carry-recycling-information"));
+        array.add(new Article("News_2", "2020-01-26T09:06:18Z", Article.Category.OTHER, "https://www.theguardian.com/environment/2020/jan/26/call-for-all-toiletries-to-carry-recycling-information"));
+        array.add(new Article("News_3", "2020-01-26T09:06:18Z", Article.Category.OTHER, "https://www.theguardian.com/environment/2020/jan/26/call-for-all-toiletries-to-carry-recycling-information"));
+        array.add(new Article("News_4", "2020-01-26T09:06:18Z", Article.Category.OTHER, "https://www.theguardian.com/environment/2020/jan/26/call-for-all-toiletries-to-carry-recycling-information"));
+        array.add(new Article("News_5", "2020-01-26T09:06:18Z", Article.Category.OTHER, "https://www.theguardian.com/environment/2020/jan/26/call-for-all-toiletries-to-carry-recycling-information"));
+        array.add(new Article("News_6", "2020-01-26T09:06:18Z", Article.Category.OTHER, "https://www.theguardian.com/environment/2020/jan/26/call-for-all-toiletries-to-carry-recycling-information"));
 
         return array;
     }

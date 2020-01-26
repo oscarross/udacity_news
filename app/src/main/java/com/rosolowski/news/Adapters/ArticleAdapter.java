@@ -33,7 +33,7 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         Article currentArticle = getItem(position);
 
         TextView titleTextView = listView.findViewById(R.id.place_list_item_title);
-        titleTextView.setText(currentArticle.getName());
+        titleTextView.setText(currentArticle.getWebTitle());
 
 //        ImageView imageView = listView.findViewById(R.id.place_list_item_image);
 //        imageView.setImageResource(currentPlace.getImageResourceId());

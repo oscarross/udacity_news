@@ -67,6 +67,7 @@ public class ArticleService {
             uriBuilder.appendPath(section.toString());
         }
 
+        uriBuilder.appendQueryParameter("format", "json");
         uriBuilder.appendQueryParameter("api-key", API_KEY);
 
         return uriBuilder.toString();

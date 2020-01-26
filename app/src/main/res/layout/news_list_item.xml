@@ -1,34 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<!--    android:minHeight="@dimen/item_height"-->
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/item_height"
-    android:minHeight="@dimen/item_height">
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/margin_large">
 
-    <TextView
-        android:padding="@dimen/margin_small"
-        android:id="@+id/place_list_item_title"
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/place_list_item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="16sp"
+            tools:text="Tranmere Rovers v Manchester United: FA Cup fourth round – live!" />
+
+        <TextView
+            android:id="@+id/place_list_item_section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAllCaps="true"
+            android:textColor="@color/shadow"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="12sp"
+            tools:text="Football" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:layout_marginLeft="@dimen/margin_large"
-        android:layout_marginTop="@dimen/margin_large"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_marginStart="@dimen/margin_large" />
+        android:orientation="vertical">
 
-    <TextView
-        android:padding="@dimen/margin_small"
-        android:id="@+id/place_list_item_date"
-        android:layout_below="@id/place_list_item_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_large"
-        android:layout_marginBottom="@dimen/margin_large"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:textStyle="italic"
-        android:textColor="@color/shadow"
-        android:layout_marginStart="@dimen/margin_large" />
+        <TextView
+            android:id="@+id/place_list_item_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:textColor="@color/shadow"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="12sp"
+            tools:text="2020-01-01" />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/place_list_item_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:textColor="@color/shadow"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="12sp"
+            tools:text="3:00" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

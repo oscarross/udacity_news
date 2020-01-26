@@ -4,17 +4,18 @@ import android.content.AsyncTaskLoader;
 import android.content.Context;
 
 import com.rosolowski.news.Data.Article;
+import com.rosolowski.news.Data.Section;
 
 import java.util.List;
 
 public class ArticleLoader extends AsyncTaskLoader<List<Article>> {
 
-    private String mUrl;
+    private Section section;
 
-    public ArticleLoader(Context context, String url) {
+    public ArticleLoader(Context context, Section section) {
         super(context);
 
-        mUrl = url;
+        this.section = section;
     }
 
     @Override
@@ -24,10 +25,10 @@ public class ArticleLoader extends AsyncTaskLoader<List<Article>> {
 
     @Override
     public List<Article> loadInBackground() {
-        if (mUrl == null) {
+        if (section == null) {
             return null;
         }
 
-        return ArticleService.fetchArticlesData(mUrl);
+        return ArticleService.fetchArticlesData(section);
     }
 }

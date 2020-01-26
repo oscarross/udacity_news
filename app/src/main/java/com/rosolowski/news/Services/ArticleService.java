@@ -3,6 +3,7 @@ package com.rosolowski.news.Services;
 import android.util.Log;
 
 import com.rosolowski.news.Data.Article;
+import com.rosolowski.news.Data.Section;
 import com.rosolowski.news.Utils.DateParser;
 
 import org.json.JSONArray;
@@ -24,11 +25,13 @@ import java.util.List;
 public class ArticleService {
 
     private static final String LOG_TAG = ArticleService.class.getName();
+    private static final String API_KEY = "591559ff-7e79-4ce6-b902-fe7fe9f7fe02";
+    private static final String BASE_URL = "https://content.guardianapis.com/";
 
     private ArticleService() { }
 
-    public static List<Article> fetchArticlesData(String requestUrl) {
-        URL url = createUrl(requestUrl);
+    public static List<Article> fetchArticlesData(Section selectedSection) {
+        URL url = createUrl(selectedSection);
 
         String jsonResponse = null;
         try {
@@ -41,10 +44,12 @@ public class ArticleService {
         return articles;
     }
 
-    private static URL createUrl(String stringUrl) {
+    private static URL createUrl(Section selectedSection) {
+        String stringURL = BASE_URL + selectedSection.toString() + "?api-key=" + API_KEY;
+
         URL url = null;
         try {
-            url = new URL(stringUrl);
+            url = new URL(stringURL);
         } catch (MalformedURLException e) {
             Log.e(LOG_TAG, "Problem building the URL ", e);
         }
@@ -115,8 +120,10 @@ public class ArticleService {
                 String webPublicationDateString = currentArticleJsonObject.getString("webPublicationDate");
                 Date webPublicationDate = DateParser.parseDateStringWithTimeZoneToDate(webPublicationDateString);
                 String webUrl = currentArticleJsonObject.getString("webUrl");
+                String sectionId = currentArticleJsonObject.getString("sectionId");
+                Section section = parseSectionId(sectionId);
 
-                Article article = new Article(webTitle, webPublicationDate, webUrl);
+                Article article = new Article(webTitle, webPublicationDate, webUrl, section);
                 Log.d(LOG_TAG, String.valueOf(article));
 
                 articles.add(article);
@@ -127,5 +134,24 @@ public class ArticleService {
         }
 
         return articles;
+    }
+
+    private static Section parseSectionId(String sectionId) {
+        Section section = null;
+
+        switch(sectionId)
+        {
+            case "football":
+                section = Section.FOOTBALL;
+                break;
+            case "technology":
+                section = Section.TECHNOLOGY;
+                break;
+            default:
+                section = Section.OTHER;
+                break;
+        }
+
+        return section;
     }
 }

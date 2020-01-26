@@ -16,9 +16,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.rosolowski.news.Adapters.ArticleAdapter;
 import com.rosolowski.news.Data.Article;
+import com.rosolowski.news.Data.Section;
 import com.rosolowski.news.R;
 import com.rosolowski.news.Services.ArticleLoader;
+import com.rosolowski.news.Services.ArticleService;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,8 +29,6 @@ public class ArticlesActivity extends AppCompatActivity implements LoaderManager
 
     private static final int ARTICLES_LOADER_ID = 1;
     public static final String LOG_TAG = ArticlesActivity.class.getName();
-
-    private static final String USGS_REQUEST_URL = "https://content.guardianapis.com/search?tag=environment/recycling&api-key=591559ff-7e79-4ce6-b902-fe7fe9f7fe02";
 
     private ArticleAdapter mAdapter;
     private TextView mEmptyStateTextView;
@@ -75,7 +76,7 @@ public class ArticlesActivity extends AppCompatActivity implements LoaderManager
 
     @Override
     public Loader<List<Article>> onCreateLoader(int id, Bundle args) {
-        return new ArticleLoader(this, USGS_REQUEST_URL);
+        return new ArticleLoader(this, Section.FOOTBALL); // TODO: pass last selected section
     }
 
     @Override

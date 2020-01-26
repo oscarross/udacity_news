@@ -19,8 +19,14 @@ public class DateParser {
         return parsedDate;
     }
 
-    public static String formatDate(Date input) {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public static String getTimeString(Date input) {
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
+
+        return formatter.format(input);
+    }
+
+    public static String getYearMonthDayString(Date input) {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
         return formatter.format(input);
     }

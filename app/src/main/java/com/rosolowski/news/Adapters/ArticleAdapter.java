@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -36,7 +35,7 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         titleTextView.setText(currentArticle.getWebTitle());
 
         TextView subtitleTextView = listView.findViewById(R.id.place_list_item_section);
-        subtitleTextView.setText(currentArticle.getSection().toString());
+        subtitleTextView.setText(currentArticle.getSectionId());
 
         TextView dateTextView = listView.findViewById(R.id.place_list_item_date);
         dateTextView.setText(currentArticle.getYearMonthDayString());

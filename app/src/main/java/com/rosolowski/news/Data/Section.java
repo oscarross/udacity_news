@@ -3,7 +3,7 @@ package com.rosolowski.news.Data;
 public enum  Section {
     TECHNOLOGY("technology"),
     FOOTBALL("football"),
-    OTHER("other")
+    ALL("all")
     ;
 
     private final String text;

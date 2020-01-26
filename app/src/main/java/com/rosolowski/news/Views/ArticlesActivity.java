@@ -2,11 +2,16 @@ package com.rosolowski.news.Views;
 
 import android.app.LoaderManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -19,9 +24,7 @@ import com.rosolowski.news.Data.Article;
 import com.rosolowski.news.Data.Section;
 import com.rosolowski.news.R;
 import com.rosolowski.news.Services.ArticleLoader;
-import com.rosolowski.news.Services.ArticleService;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +32,7 @@ public class ArticlesActivity extends AppCompatActivity implements LoaderManager
 
     private static final int ARTICLES_LOADER_ID = 1;
     public static final String LOG_TAG = ArticlesActivity.class.getName();
+    private Section selectedSection = Section.FOOTBALL; // TODO: change to all
 
     private ArticleAdapter mAdapter;
     private TextView mEmptyStateTextView;
@@ -54,6 +58,14 @@ public class ArticlesActivity extends AppCompatActivity implements LoaderManager
 //                Uri earthquakeUri = Uri.parse(currentEarthquake.getUrl());
 //                Intent websiteIntent = new Intent(Intent.ACTION_VIEW, earthquakeUri);
 //                startActivity(websiteIntent);
+
+                SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+
+//                String minMagnitude = sharedPrefs.getString(
+//                        getString(R.string.settings_min_magnitude_key),
+//                        getString(R.string.settings_min_magnitude_default));
+
+//                Log.d(LOG_TAG, minMagnitude);
                 Log.d(LOG_TAG, String.valueOf(currentArticle));
             }
         });
@@ -74,10 +86,7 @@ public class ArticlesActivity extends AppCompatActivity implements LoaderManager
 
     }
 
-    @Override
-    public Loader<List<Article>> onCreateLoader(int id, Bundle args) {
-        return new ArticleLoader(this, Section.FOOTBALL); // TODO: pass last selected section
-    }
+    // Loader
 
     @Override
     public void onLoadFinished(Loader<List<Article>> loader, List<Article> earthquakes) {
@@ -96,5 +105,59 @@ public class ArticlesActivity extends AppCompatActivity implements LoaderManager
     @Override
     public void onLoaderReset(Loader<List<Article>> loader) {
         mAdapter.clear();
+    }
+
+
+    @Override
+    public Loader<List<Article>> onCreateLoader(int id, Bundle args) {
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+
+        String selectedSectionString  = sharedPrefs.getString(
+                getString(R.string.settings_section_by_key),
+                getString(R.string.settings_section_by_default)
+        );
+
+        Section selectedSection = parseSectionId(selectedSectionString);
+
+        return new ArticleLoader(this, selectedSection); // TODO: pass last selected section
+    }
+
+    // Menu
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            Intent settingsIntent = new Intent(this, SettingsActivity.class);
+            startActivity(settingsIntent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private Section parseSectionId(String sectionId) {
+        Section section = null;
+
+        switch(sectionId)
+        {
+            case "football":
+                section = Section.FOOTBALL;
+                break;
+            case "technology":
+                section = Section.TECHNOLOGY;
+                break;
+            default:
+                section = Section.ALL;
+                break;
+        }
+
+        return section;
     }
 }

@@ -9,13 +9,13 @@ public class Article {
     private String webTitle;
     private Date webPublicationDate;
     private String webUrl;
-    private Section section;
+    private String sectionId;
 
-    public Article(String webTitle, Date webPublicationDate, String webUrl, Section section) {
+    public Article(String webTitle, Date webPublicationDate, String webUrl, String sectionId) {
         this.webTitle = webTitle;
         this.webPublicationDate = webPublicationDate;
         this.webUrl = webUrl;
-        this.section = section;
+        this.sectionId = sectionId;
     }
 
     public String getWebTitle() {
@@ -34,8 +34,8 @@ public class Article {
         return webUrl;
     }
 
-    public Section getSection() {
-        return section;
+    public String getSectionId() {
+        return sectionId;
     }
 
     @NonNull

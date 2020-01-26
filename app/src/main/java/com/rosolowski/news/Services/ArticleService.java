@@ -45,6 +45,8 @@ public class ArticleService {
     }
 
     private static URL createUrl(Section selectedSection) {
+        // TODO: hadnle all case
+
         String stringURL = BASE_URL + selectedSection.toString() + "?api-key=" + API_KEY;
 
         URL url = null;
@@ -121,10 +123,9 @@ public class ArticleService {
                 Date webPublicationDate = DateParser.parseDateStringWithTimeZoneToDate(webPublicationDateString);
                 String webUrl = currentArticleJsonObject.getString("webUrl");
                 String sectionId = currentArticleJsonObject.getString("sectionId");
-                Section section = parseSectionId(sectionId);
 
-                Article article = new Article(webTitle, webPublicationDate, webUrl, section);
-                Log.d(LOG_TAG, String.valueOf(article));
+                Article article = new Article(webTitle, webPublicationDate, webUrl, sectionId);
+//                Log.d(LOG_TAG, String.valueOf(article));
 
                 articles.add(article);
             }
@@ -134,24 +135,5 @@ public class ArticleService {
         }
 
         return articles;
-    }
-
-    private static Section parseSectionId(String sectionId) {
-        Section section = null;
-
-        switch(sectionId)
-        {
-            case "football":
-                section = Section.FOOTBALL;
-                break;
-            case "technology":
-                section = Section.TECHNOLOGY;
-                break;
-            default:
-                section = Section.OTHER;
-                break;
-        }
-
-        return section;
     }
 }

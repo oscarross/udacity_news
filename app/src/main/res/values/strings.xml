@@ -3,4 +3,13 @@
 
     <string name="no_articles">No articles found.</string>
     <string name="no_internet_connection">No internet connection.</string>
+    <string name="settings_title">Settings</string>
+
+    <string name="settings_section_by_label">Filter by section</string>
+    <string name="settings_section_by_key" translatable="false">selected_section</string>
+    <string name="settings_section_by_default" translatable="false">all</string>
+    <string name="settings_section_title">Section</string>
+
+<!--    <string name="settings_menu_item">Settings</string>-->
+
 </resources>

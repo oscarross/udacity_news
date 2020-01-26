@@ -1,5 +1,6 @@
 package com.rosolowski.news.Services;
 
+import android.net.Uri;
 import android.util.Log;
 
 import com.rosolowski.news.Data.Article;
@@ -45,7 +46,7 @@ public class ArticleService {
     }
 
     private static URL createUrl(Section selectedSection) {
-        String stringURL = BASE_URL + buildQuertForSection(selectedSection); // TODO: change to uri builder
+        String stringURL = buildQueryForSection(selectedSection);
 
         URL url = null;
         try {
@@ -56,12 +57,19 @@ public class ArticleService {
         return url;
     }
 
-    private static String buildQuertForSection(Section section) {
+    private static String buildQueryForSection(Section section) {
+        Uri baseUri = Uri.parse(BASE_URL);
+        Uri.Builder uriBuilder = baseUri.buildUpon();
+
         if (section == Section.ALL) {
-             return "search" + "?api-key=" + API_KEY;
+            uriBuilder.appendPath("search");
         } else {
-            return section.toString() + "?api-key=" + API_KEY;
+            uriBuilder.appendPath(section.toString());
         }
+
+        uriBuilder.appendQueryParameter("api-key", API_KEY);
+
+        return uriBuilder.toString();
     }
 
     private static String makeHttpRequest(URL url) throws IOException {

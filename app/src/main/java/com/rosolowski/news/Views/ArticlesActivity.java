@@ -32,8 +32,6 @@ import java.util.List;
 public class ArticlesActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Article>> {
 
     private static final int ARTICLES_LOADER_ID = 1;
-    public static final String LOG_TAG = ArticlesActivity.class.getName();
-    private Section selectedSection = Section.FOOTBALL; // TODO: change to all
 
     private ArticleAdapter mAdapter;
     private TextView mEmptyStateTextView;
@@ -134,21 +132,14 @@ public class ArticlesActivity extends AppCompatActivity implements LoaderManager
     }
 
     private Section parseSectionId(String sectionId) {
-        Section section = null;
-
-        switch(sectionId)
-        {
-            case "football":
-                section = Section.FOOTBALL;
-                break;
-            case "technology":
-                section = Section.TECHNOLOGY;
-                break;
-            default:
-                section = Section.ALL;
-                break;
+        if (sectionId.equals(Section.FOOTBALL.toString())) {
+            return Section.FOOTBALL;
+        } else if (sectionId.equals(Section.TECHNOLOGY.toString())) {
+            return Section.TECHNOLOGY;
+        } else if (sectionId.equals(Section.POLITICS.toString())) {
+            return Section.POLITICS;
+        } else {
+            return Section.ALL;
         }
-
-        return section;
     }
 }

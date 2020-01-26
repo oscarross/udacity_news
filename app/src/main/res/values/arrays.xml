@@ -4,12 +4,14 @@
         <item>@string/settings_selection_all_label</item>
         <item>@string/settings_selection_football_label</item>
         <item>@string/settings_selection_technology_label</item>
+        <item>@string/settings_selection_politics_label</item>
     </string-array>
 
     <string-array name="settings_sections_by_values">
         <item>@string/settings_selection_all_value</item>
         <item>@string/settings_selection_football_value</item>
         <item>@string/settings_selection_technology_value</item>
+        <item>@string/settings_selection_politics_value</item>
     </string-array>
 
     <string name="settings_selection_all_label">All</string>
@@ -20,5 +22,8 @@
 
     <string name="settings_selection_technology_label">Technology</string>
     <string name="settings_selection_technology_value">technology</string>
+
+    <string name="settings_selection_politics_label">Politics</string>
+    <string name="settings_selection_politics_value">politics</string>
 
 </resources>

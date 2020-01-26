@@ -3,6 +3,7 @@ package com.rosolowski.news.Data;
 public enum  Section {
     TECHNOLOGY("technology"),
     FOOTBALL("football"),
+    POLITICS("politics"),
     ALL("all")
     ;
 

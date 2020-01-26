@@ -33,20 +33,20 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
 
         Article currentArticle = getItem(position);
 
-        TextView titleTextView = listView.findViewById(R.id.place_list_item_title);
+        TextView titleTextView = listView.findViewById(R.id.item_title);
         titleTextView.setText(currentArticle.getWebTitle());
 
         String sectiondId = currentArticle.getSectionId();
 
-        TextView subtitleTextView = listView.findViewById(R.id.place_list_item_section);
+        TextView subtitleTextView = listView.findViewById(R.id.item_section);
         subtitleTextView.setText(currentArticle.getSectionName());
         subtitleTextView.setBackgroundColor(getSectionBackgroundColor(sectiondId));
         subtitleTextView.setTextColor(getSectionTextColor(sectiondId));
 
-        TextView dateTextView = listView.findViewById(R.id.place_list_item_date);
+        TextView dateTextView = listView.findViewById(R.id.item_date);
         dateTextView.setText(currentArticle.getYearMonthDayString());
 
-        TextView timeTextView = listView.findViewById(R.id.place_list_item_time);
+        TextView timeTextView = listView.findViewById(R.id.item_time);
         timeTextView.setText(currentArticle.getTimeString());
 
         return listView;

@@ -16,7 +16,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/place_list_item_title"
+            android:id="@+id/item_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_small"
@@ -25,7 +25,7 @@
             tools:text="Tranmere Rovers v Manchester United: FA Cup fourth round – live!" />
 
         <TextView
-            android:id="@+id/place_list_item_section"
+            android:id="@+id/item_section"
             android:paddingVertical="@dimen/margin_extra_small"
             android:paddingHorizontal="@dimen/margin_small"
             android:layout_width="wrap_content"
@@ -47,7 +47,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/place_list_item_date"
+            android:id="@+id/item_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
@@ -55,7 +55,7 @@
             tools:text="2020-01-01" />
 
         <TextView
-            android:id="@+id/place_list_item_time"
+            android:id="@+id/item_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"

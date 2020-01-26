@@ -1,22 +1,18 @@
 package com.rosolowski.news.Data;
 
 import androidx.annotation.NonNull;
+import com.rosolowski.news.Utils.DateParser;
+import java.util.Date;
 
 public class Article {
 
-    public enum Category {
-        WORLD, OTHER
-    }
-
     private String webTitle;
-    private String webPublicationDate;
-    private Category category;
+    private Date webPublicationDate;
     private String webUrl;
 
-    public Article(String webTitle, String webPublicationDate, Category category, String webUrl) {
+    public Article(String webTitle, Date webPublicationDate, String webUrl) {
         this.webTitle = webTitle;
         this.webPublicationDate = webPublicationDate;
-        this.category = category;
         this.webUrl = webUrl;
     }
 
@@ -24,12 +20,12 @@ public class Article {
         return webTitle;
     }
 
-    public Category getCategory() {
-        return category;
+    public Date getWebPublicationDate() {
+        return webPublicationDate;
     }
 
-    public String getWebPublicationDate() {
-        return webPublicationDate;
+    public String getFormatedDate() {
+        return DateParser.formatDate(webPublicationDate);
     }
 
     public String getWebUrl() {
@@ -39,6 +35,6 @@ public class Article {
     @NonNull
     @Override
     public String toString() {
-        return "Article - " + webTitle + " Category - " + category;
+        return "Article - " + webTitle + "\n\tDate - " + DateParser.formatDate(webPublicationDate) + "\n\tUrl - " + webUrl;
     }
 }

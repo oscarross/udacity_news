@@ -10,6 +10,4 @@
     <string name="settings_section_by_default" translatable="false">all</string>
     <string name="settings_section_title">Section</string>
 
-<!--    <string name="settings_menu_item">Settings</string>-->
-
 </resources>

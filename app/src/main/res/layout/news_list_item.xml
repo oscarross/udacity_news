@@ -19,22 +19,21 @@
             android:id="@+id/place_list_item_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_small"
             android:ellipsize="end"
-            android:textColor="@color/black"
-            android:fontFamily="sans-serif-medium"
-            android:textSize="16sp"
+            style="@style/TitleText"
             tools:text="Tranmere Rovers v Manchester United: FA Cup fourth round – live!" />
 
         <TextView
             android:id="@+id/place_list_item_section"
+            android:padding="@dimen/margin_extra_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="1"
             android:textAllCaps="true"
-            android:textColor="@color/shadow"
-            android:fontFamily="sans-serif-medium"
-            android:textSize="12sp"
+            android:background="@color/colorAccent"
+            style="@style/DetailText"
             tools:text="Football" />
 
     </LinearLayout>
@@ -51,9 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:textColor="@color/shadow"
-            android:fontFamily="sans-serif-medium"
-            android:textSize="12sp"
+            style="@style/DateText"
             tools:text="2020-01-01" />
 
         <TextView
@@ -61,9 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:textColor="@color/shadow"
-            android:fontFamily="sans-serif-medium"
-            android:textSize="12sp"
+            style="@style/DateText"
             tools:text="3:00" />
 
     </LinearLayout>

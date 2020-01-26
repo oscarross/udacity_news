@@ -35,7 +35,7 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         titleTextView.setText(currentArticle.getWebTitle());
 
         TextView subtitleTextView = listView.findViewById(R.id.place_list_item_section);
-        subtitleTextView.setText(currentArticle.getSectionId());
+        subtitleTextView.setText(currentArticle.getSectionName());
 
         TextView dateTextView = listView.findViewById(R.id.place_list_item_date);
         dateTextView.setText(currentArticle.getYearMonthDayString());

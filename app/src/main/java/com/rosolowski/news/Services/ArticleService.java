@@ -45,9 +45,7 @@ public class ArticleService {
     }
 
     private static URL createUrl(Section selectedSection) {
-        // TODO: hadnle all case
-
-        String stringURL = BASE_URL + selectedSection.toString() + "?api-key=" + API_KEY;
+        String stringURL = BASE_URL + buildQuertForSection(selectedSection); // TODO: change to uri builder
 
         URL url = null;
         try {
@@ -56,6 +54,14 @@ public class ArticleService {
             Log.e(LOG_TAG, "Problem building the URL ", e);
         }
         return url;
+    }
+
+    private static String buildQuertForSection(Section section) {
+        if (section == Section.ALL) {
+             return "search" + "?api-key=" + API_KEY;
+        } else {
+            return section.toString() + "?api-key=" + API_KEY;
+        }
     }
 
     private static String makeHttpRequest(URL url) throws IOException {
@@ -123,9 +129,9 @@ public class ArticleService {
                 Date webPublicationDate = DateParser.parseDateStringWithTimeZoneToDate(webPublicationDateString);
                 String webUrl = currentArticleJsonObject.getString("webUrl");
                 String sectionId = currentArticleJsonObject.getString("sectionId");
+                String sectionName = currentArticleJsonObject.getString("sectionName");
 
-                Article article = new Article(webTitle, webPublicationDate, webUrl, sectionId);
-//                Log.d(LOG_TAG, String.valueOf(article));
+                Article article = new Article(webTitle, webPublicationDate, webUrl, sectionId, sectionName);
 
                 articles.add(article);
             }

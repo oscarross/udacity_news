@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.rosolowski.news.Data.Article;
 import com.rosolowski.news.Data.DatabaseStore;
-import com.rosolowski.news.Data.News;
 import com.rosolowski.news.R;
 import com.rosolowski.news.Views.OtherNewsFragment;
 import com.rosolowski.news.Views.WorldNewsFragment;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
 
-    private ArrayList<News.Category> categories;
+    private ArrayList<Article.Category> categories;
     private Context context;
 
     public SimpleFragmentPagerAdapter(@NonNull FragmentManager fm, Context context) {
@@ -31,7 +31,7 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        News.Category category = categories.get(position);
+        Article.Category category = categories.get(position);
 
         switch (category) {
             case WORLD: return new WorldNewsFragment();
@@ -49,7 +49,7 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        News.Category category = categories.get(position);
+        Article.Category category = categories.get(position);
 
         switch (category) {
             case WORLD: return "WORLD";

@@ -11,13 +11,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.rosolowski.news.Data.News;
+import com.rosolowski.news.Data.Article;
 import com.rosolowski.news.R;
 
 import java.util.ArrayList;
 
-public class NewsAdapter extends ArrayAdapter<News> {
-    public NewsAdapter(Context context, ArrayList<News> array) {
+public class ArticleAdapter extends ArrayAdapter<Article> {
+    public ArticleAdapter(Context context, ArrayList<Article> array) {
         super(context, 0, array);
     }
 
@@ -30,10 +30,10 @@ public class NewsAdapter extends ArrayAdapter<News> {
             listView = LayoutInflater.from(getContext()).inflate(R.layout.news_list_item, parent, false);
         }
 
-        News currentNews = getItem(position);
+        Article currentArticle = getItem(position);
 
         TextView titleTextView = listView.findViewById(R.id.place_list_item_title);
-        titleTextView.setText(currentNews.getName());
+        titleTextView.setText(currentArticle.getName());
 
 //        ImageView imageView = listView.findViewById(R.id.place_list_item_image);
 //        imageView.setImageResource(currentPlace.getImageResourceId());

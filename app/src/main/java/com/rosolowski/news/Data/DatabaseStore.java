@@ -3,16 +3,16 @@ package com.rosolowski.news.Data;
 import java.util.ArrayList;
 
 public class DatabaseStore {
-    public ArrayList<News.Category> getCategories() {
-        final ArrayList<News.Category> categories = new ArrayList<>();
+    public ArrayList<Article.Category> getCategories() {
+        final ArrayList<Article.Category> categories = new ArrayList<>();
 
-        categories.add(News.Category.WORLD);
-        categories.add(News.Category.OTHER);
+        categories.add(Article.Category.WORLD);
+        categories.add(Article.Category.OTHER);
 
         return categories;
     }
 
-    public ArrayList<News> getNewsForCategory(News.Category category) {
+    public ArrayList<Article> getNewsForCategory(Article.Category category) {
         switch (category) {
             case WORLD: return mockNewsWorld();
             case OTHER: return mockNewsOther();
@@ -21,25 +21,25 @@ public class DatabaseStore {
         return null;
     }
 
-    private ArrayList<News> mockNewsWorld() {
-        final ArrayList<News> array = new ArrayList<>();
-        array.add(new News("News_1", News.Category.WORLD));
-        array.add(new News("News_2", News.Category.WORLD));
-        array.add(new News("News_3", News.Category.WORLD));
-        array.add(new News("News_4", News.Category.WORLD));
-        array.add(new News("News_5", News.Category.WORLD));
-        array.add(new News("News_6", News.Category.WORLD));
+    private ArrayList<Article> mockNewsWorld() {
+        final ArrayList<Article> array = new ArrayList<>();
+        array.add(new Article("News_1", Article.Category.WORLD));
+        array.add(new Article("News_2", Article.Category.WORLD));
+        array.add(new Article("News_3", Article.Category.WORLD));
+        array.add(new Article("News_4", Article.Category.WORLD));
+        array.add(new Article("News_5", Article.Category.WORLD));
+        array.add(new Article("News_6", Article.Category.WORLD));
         return array;
     }
 
-    private ArrayList<News> mockNewsOther() {
-        final ArrayList<News> array = new ArrayList<>();
-        array.add(new News("News_1", News.Category.OTHER));
-        array.add(new News("News_2", News.Category.OTHER));
-        array.add(new News("News_3", News.Category.OTHER));
-        array.add(new News("News_4", News.Category.OTHER));
-        array.add(new News("News_5", News.Category.OTHER));
-        array.add(new News("News_6", News.Category.OTHER));
+    private ArrayList<Article> mockNewsOther() {
+        final ArrayList<Article> array = new ArrayList<>();
+        array.add(new Article("News_1", Article.Category.OTHER));
+        array.add(new Article("News_2", Article.Category.OTHER));
+        array.add(new Article("News_3", Article.Category.OTHER));
+        array.add(new Article("News_4", Article.Category.OTHER));
+        array.add(new Article("News_5", Article.Category.OTHER));
+        array.add(new Article("News_6", Article.Category.OTHER));
 
         return array;
     }

@@ -10,9 +10,9 @@ import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
 
-import com.rosolowski.news.Adapters.NewsAdapter;
+import com.rosolowski.news.Adapters.ArticleAdapter;
+import com.rosolowski.news.Data.Article;
 import com.rosolowski.news.Data.DatabaseStore;
-import com.rosolowski.news.Data.News;
 import com.rosolowski.news.R;
 
 import java.util.ArrayList;
@@ -30,8 +30,8 @@ public class WorldNewsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.news_list, container, false);
 
-        final ArrayList<News> newsArrayList = store.getNewsForCategory(News.Category.WORLD);
-        NewsAdapter newsAdapter = new NewsAdapter(getActivity(), newsArrayList);
+        final ArrayList<Article> arrayList = store.getNewsForCategory(Article.Category.WORLD);
+        ArticleAdapter newsAdapter = new ArticleAdapter(getActivity(), arrayList);
 
         ListView listView = rootView.findViewById(R.id.list);
         listView.setAdapter(newsAdapter);
@@ -39,7 +39,7 @@ public class WorldNewsFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                News news = newsArrayList.get(position);
+                Article news = arrayList.get(position);
                 Log.v("Click", "News: " + news);
             }
         });

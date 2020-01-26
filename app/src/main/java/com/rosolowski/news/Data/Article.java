@@ -2,7 +2,7 @@ package com.rosolowski.news.Data;
 
 import androidx.annotation.NonNull;
 
-public class News {
+public class Article {
 
     public enum Category {
         WORLD, OTHER
@@ -11,7 +11,7 @@ public class News {
     private String name;
     private Category category;
 
-    public News(String name, Category category) {
+    public Article(String name, Category category) {
         this.name = name;
         this.category = category;
     }
@@ -27,6 +27,6 @@ public class News {
     @NonNull
     @Override
     public String toString() {
-        return "News - " + name + " Category - " + category;
+        return "Article - " + name + " Category - " + category;
     }
 }
